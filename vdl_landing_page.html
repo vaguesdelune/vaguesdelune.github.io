@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="style.css"></head>
+</head>
+<body>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js"></script>
+<spline-viewer id="my-spline" url="https://prod.spline.design/kja4QBcTeUFZlRCQ/scene.splinecode"></spline-viewer>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+  const splineViewer = document.getElementById('my-spline');
+
+  // 1. The Interception Function
+  const routeEvents = (canvas) => {
+    // Block standard click-and-drag actions immediately
+    canvas.addEventListener('mousedown', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+    }, true);
+
+    // Keep mobile touch scrolling functional
+    canvas.addEventListener('touchstart', (e) => {
+      // If it's a 1-finger drag, do NOT call preventDefault. 
+      // This tells the browser to process a normal page scroll.
+      e.stopPropagation(); 
+    }, { capture: true, passive: true });
+
+    canvas.addEventListener('pointerdown', (e) => {
+      e.stopPropagation();
+    }, { capture: true, passive: true });
+  };
+
+  // 2. Safe, dynamic shadowRoot checker
+  if (splineViewer.shadowRoot) {
+    const internalCanvas = splineViewer.shadowRoot.querySelector('canvas');
+    if (internalCanvas) routeEvents(internalCanvas);
+  } else {
+    // If Spline takes a split-second to mount the shadow DOM
+    const observer = new MutationObserver(() => {
+      if (splineViewer.shadowRoot) {
+        const internalCanvas = splineViewer.shadowRoot.querySelector('canvas');
+        if (internalCanvas) {
+          routeEvents(internalCanvas);
+          observer.disconnect();
+        }
+      }
+    });
+    observer.observe(splineViewer, { childList: true, subtree: true });
+  }
+});
+</script>
+
+<audio id="bg-audio" controls autoplay loop ><source src="tracks/VDL LANDING PAGE DRONE 1.webm"><source src="tracks/VDL LANDING PAGE DRONE 1.mp3"></audio>
+
+<div class="btns">
+<button id="mute-btn" class="mute-btn">
+<img id ="mute" src="icons/ion--volume-mute-sharp.svg">
+</button>
+</div>
+
+
+<script src="script.js" defer></script>
+</body>

@@ -1,0 +1,56 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+spline-viewer{
+    position:fixed;
+    z-index:-1;
+}
+
+#bg-audio{
+    z-index:3;
+    pointer-events: auto;
+    display : none;
+}
+
+.btns{
+    position: fixed;   
+    top: 25px;         
+    right: 3%;         
+    z-index: 33;
+    pointer-events: auto !important;
+    touch-action: manipulation;
+}
+
+.mute-btn{
+position: relative; 
+    width: 66px;  
+    height: 66px;
+    opacity: 0.5;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.2s ease;
+}
+
+.mute-btn:hover{
+    opacity:0.9;
+    cursor:pointer;
+    transition: opacity 0.5s ease-in-out;
+    
+}
+
+.mute-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    pointer-events: none;
+}
