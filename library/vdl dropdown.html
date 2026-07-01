@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VDL Dropdown</title>
+
+
+  <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+    <div class="background-container">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js"></script>
+<spline-viewer id="my-spline" loading="eager" url="https://prod.spline.design/FLtrxlJS4n5H3fiY/scene.splinecode"></spline-viewer>
+ 
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+  const splineViewer = document.getElementById('my-spline');
+
+  // 1. The Interception Function
+  const routeEvents = (canvas) => {
+    // Block standard click-and-drag actions immediately
+    canvas.addEventListener('mousedown', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+    }, true);
+
+    // Keep mobile touch scrolling functional
+    canvas.addEventListener('touchstart', (e) => {
+      // If it's a 1-finger drag, do NOT call preventDefault. 
+      // This tells the browser to process a normal page scroll.
+      e.stopPropagation(); 
+    }, { capture: true, passive: true });
+
+    canvas.addEventListener('pointerdown', (e) => {
+      e.stopPropagation();
+    }, { capture: true, passive: true });
+  };
+
+  // 2. Safe, dynamic shadowRoot checker
+  if (splineViewer.shadowRoot) {
+    const internalCanvas = splineViewer.shadowRoot.querySelector('canvas');
+    if (internalCanvas) routeEvents(internalCanvas);
+  } else {
+    // If Spline takes a split-second to mount the shadow DOM
+    const observer = new MutationObserver(() => {
+      if (splineViewer.shadowRoot) {
+        const internalCanvas = splineViewer.shadowRoot.querySelector('canvas');
+        if (internalCanvas) {
+          routeEvents(internalCanvas);
+          observer.disconnect();
+        }
+      }
+    });
+    observer.observe(splineViewer, { childList: true, subtree: true });
+  }
+});
+</script>
+
+<main class="page-content">
+
+<audio class="lazulina-bg" id="lazulina-bg" loop autoplay controls>
+    <source src="library/LAZULINA MASTER 3.mp3">
+</audio>
+
+
+<h1 id="vdl">
+    vagues de lune
+</h1>
+
+<div class="links-container">
+<div class="links">
+
+    <a id="youtube" href="https://www.youtube.com/@vaguesdelune/" target="blank"><img src="icons/youtube.svg" class="youtube"></a>
+
+    <a id="ig" href="https://www.instagram.com/vaguesdelune/" target="blank"><img src="icons/instagram.svg" class="ig"></a>
+
+    <a id="spotify" href="https://open.spotify.com/artist/7ymjqhOYN9dU169ooxzDFY?si=AH5e5TlXRti-eBFbzeSBFw" target="blank"><img src="icons/spotify-line.svg" class="spotify"></a>
+
+    <a id="apple" href="https://music.apple.com/ca/artist/vagues-de-lune/1852889977" target="blank"><img src="icons/apple-line.svg" class="apple"></a>
+
+    <a id="bandcamp" href="https://vaguesdelune.bandcamp.com/" target="blank"><img src="icons/Bandcamp-button-circle-line-black.svg" class="bandcamp"></a>
+
+</div>
+</div>
+ 
+<div class="btns">
+<button id="mute-btn" class="mute-btn">
+<img id ="mute" src="icons/ion--volume-high-sharp.svg">
+</button>
+</div>
+
+    <div>
+     <select>
+       <option>calm</option>
+       <option>haunting</option>
+       <option>atmospheric</option>
+     </select>
+    </div>
+   <div class="library-container">
+    <div id="library" class="library">
+
+        <p id="disclaimer">If using this library, please link this website in the description of whatever you are uploading :)</p>
+
+    <input type="checkbox" id="toggle-trigger-calm" class="hidden-checkbox-calm">
+    <label for="toggle-trigger-calm" class="toggle-button-calm">calm</label>
+
+    <div class="audio-calm" id="calm">
+        <table id="dropdown">
+            <tr>
+                <th>lazulina</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/LAZULINA MASTER 3.webm"><source src="library/LAZULINA MASTER 3.mp3"></audio>
+                 <a class ="download" id="lazulina dowload" href="LAZULINA MASTER 3.mp3" download="LAZULINA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>kava kava</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/KAVA KAVA MASTER 2.webm"><source src="library/KAVA KAVA MASTER 2.mp3"></audio>
+                 <a class ="download" id="kava kava dowload" href="KAVA KAVA MASTER 2.mp3" download="KAVA KAVA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>cirrus</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/CIRRUS MASTER 1.webm"><source src="library/CIRRUS MASTER 1.mp3"></audio>
+                 <a class ="download" id="cirrus dowload" href="CIRRUS MASTER 1.mp3" download="CIRRUS.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>nandi</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/NANDI MASTER 1.webm"><source src="library/NANDI MASTER 1.mp3"></audio>
+                 <a class ="download" id="nandi dowload" href="NANDI MASTER 1.mp3" download="NANDI.mp3">download</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <input type="checkbox" id="toggle-trigger-haunting" class="hidden-checkbox-haunting">
+    <label for="toggle-trigger-haunting" class="toggle-button-haunting">haunting</label>
+
+    <div class="audio-haunting" id="haunting">
+        <table id="dropdown">
+            <tr>
+                <th>lazulina</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/LAZULINA MASTER 3.webm"><source src="library/LAZULINA MASTER 3.mp3"></audio>
+                 <a class ="download" id="lazulina dowload" href="LAZULINA MASTER 3.mp3" download="LAZULINA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>kava kava</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/KAVA KAVA MASTER 2.webm"><source src="library/KAVA KAVA MASTER 2.mp3"></audio>
+                 <a class ="download" id="kava kava dowload" href="KAVA KAVA MASTER 2.mp3" download="KAVA KAVA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>cirrus</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/CIRRUS MASTER 1.webm"><source src="library/CIRRUS MASTER 1.mp3"></audio>
+                 <a class ="download" id="cirrus dowload" href="CIRRUS MASTER 1.mp3" download="CIRRUS.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>nandi</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/NANDI MASTER 1.webm"><source src="library/NANDI MASTER 1.mp3"></audio>
+                 <a class ="download" id="nandi dowload" href="NANDI MASTER 1.mp3" download="NANDI.mp3">download</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <input type="checkbox" id="toggle-trigger-atmospheric" class="hidden-checkbox-atmospheric">
+    <label for="toggle-trigger-atmospheric" class="toggle-button-atmospheric">atmospheric</label>
+
+    <div class="audio-atmospheric" id="atmospheric">
+        <table id="dropdown">
+            <tr>
+                <th>lazulina</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/LAZULINA MASTER 3.webm"><source src="library/LAZULINA MASTER 3.mp3"></audio>
+                 <a class ="download" id="lazulina dowload" href="LAZULINA MASTER 3.mp3" download="LAZULINA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>kava kava</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/KAVA KAVA MASTER 2.webm"><source src="library/KAVA KAVA MASTER 2.mp3"></audio>
+                 <a class ="download" id="kava kava dowload" href="KAVA KAVA MASTER 2.mp3" download="KAVA KAVA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>cirrus</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/CIRRUS MASTER 1.webm"><source src="library/CIRRUS MASTER 1.mp3"></audio>
+                 <a class ="download" id="cirrus dowload" href="CIRRUS MASTER 1.mp3" download="CIRRUS.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>nandi</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/NANDI MASTER 1.webm"><source src="library/NANDI MASTER 1.mp3"></audio>
+                 <a class ="download" id="nandi dowload" href="NANDI MASTER 1.mp3" download="NANDI.mp3">download</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <input type="checkbox" id="toggle-trigger-energetic" class="hidden-checkbox-energetic">
+    <label for="toggle-trigger-energetic" class="toggle-button-energetic">energetic</label>
+
+    <div class="audio-energetic" id="energetic">
+        <table id="dropdown">
+            <tr>
+                <th>lazulina</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/LAZULINA MASTER 3.webm"><source src="library/LAZULINA MASTER 3.mp3"></audio>
+                 <a class ="download" id="lazulina dowload" href="LAZULINA MASTER 3.mp3" download="LAZULINA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>kava kava</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/KAVA KAVA MASTER 2.webm"><source src="library/KAVA KAVA MASTER 2.mp3"></audio>
+                 <a class ="download" id="kava kava dowload" href="KAVA KAVA MASTER 2.mp3" download="KAVA KAVA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>cirrus</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/CIRRUS MASTER 1.webm"><source src="library/CIRRUS MASTER 1.mp3"></audio>
+                 <a class ="download" id="cirrus dowload" href="CIRRUS MASTER 1.mp3" download="CIRRUS.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>nandi</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/NANDI MASTER 1.webm"><source src="library/NANDI MASTER 1.mp3"></audio>
+                 <a class ="download" id="nandi dowload" href="NANDI MASTER 1.mp3" download="NANDI.mp3">download</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="checkbox" id="toggle-trigger-mysterious" class="hidden-checkbox-mysterious">
+    <label for="toggle-trigger-mysterious" class="toggle-button-mysterious">mysterious</label>
+
+    <div class="audio-mysterious" id="mysterious">
+        <table id="dropdown">
+            <tr>
+                <th>lazulina</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/LAZULINA MASTER 3.webm"><source src="library/LAZULINA MASTER 3.mp3"></audio>
+                 <a class ="download" id="lazulina dowload" href="LAZULINA MASTER 3.mp3" download="LAZULINA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>kava kava</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/KAVA KAVA MASTER 2.webm"><source src="library/KAVA KAVA MASTER 2.mp3"></audio>
+                 <a class ="download" id="kava kava dowload" href="KAVA KAVA MASTER 2.mp3" download="KAVA KAVA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>cirrus</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/CIRRUS MASTER 1.webm"><source src="library/CIRRUS MASTER 1.mp3"></audio>
+                 <a class ="download" id="cirrus dowload" href="CIRRUS MASTER 1.mp3" download="CIRRUS.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>nandi</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/NANDI MASTER 1.webm"><source src="library/NANDI MASTER 1.mp3"></audio>
+                 <a class ="download" id="nandi dowload" href="NANDI MASTER 1.mp3" download="NANDI.mp3">download</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <input type="checkbox" id="toggle-trigger-joyful" class="hidden-checkbox-joyful">
+    <label for="toggle-trigger-joyful" class="toggle-button-joyful">joyful</label>
+
+    <div class="audio-joyful" id="joyful">
+        <table id="dropdown">
+            <tr>
+                <th>lazulina</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/LAZULINA MASTER 3.webm"><source src="library/LAZULINA MASTER 3.mp3"></audio>
+                 <a class ="download" id="lazulina dowload" href="LAZULINA MASTER 3.mp3" download="LAZULINA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>kava kava</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/KAVA KAVA MASTER 2.webm"><source src="library/KAVA KAVA MASTER 2.mp3"></audio>
+                 <a class ="download" id="kava kava dowload" href="KAVA KAVA MASTER 2.mp3" download="KAVA KAVA.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>cirrus</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/CIRRUS MASTER 1.webm"><source src="library/CIRRUS MASTER 1.mp3"></audio>
+                 <a class ="download" id="cirrus dowload" href="CIRRUS MASTER 1.mp3" download="CIRRUS.mp3">download</a>
+                </td>
+            </tr>
+            <tr>
+                <th>nandi</th>
+                <td>
+                 <audio controls preload="auto"><source src="library/NANDI MASTER 1.webm"><source src="library/NANDI MASTER 1.mp3"></audio>
+                 <a class ="download" id="nandi dowload" href="NANDI MASTER 1.mp3" download="NANDI.mp3">download</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    </div>
+    </main>
+    <script type="module" src="script.js" defer></script>
+</body>

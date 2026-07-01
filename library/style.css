@@ -1,0 +1,404 @@
+.unifrakturmaguntia-regular {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #000000;
+}
+
+.lazulina-bg {
+    display:none;
+}
+
+#disclaimer{
+font-family: "Bodoni Moda", cursive;
+    color: white;
+    display:flex;
+    letter-spacing:0.03em;
+    font-size:13px;
+    text-align:center;
+    line-height:1.8;
+      padding: 16px 24px;
+      opacity:0.9;
+
+    
+    background-color: rgba(0, 0, 0, 0); 
+    backdrop-filter: blur(12px);          
+    -webkit-backdrop-filter: blur(12px);  
+
+}
+
+h1 {
+    font-family: "UnifrakturMaguntia";
+    color: white;
+    font-size: 20px;
+    display: flex;
+    padding: 30px 0;
+    margin-top:60px;
+    justify-content: center;
+    letter-spacing: 23px; 
+    text-indent: 23px;   
+    opacity: 0.9;
+    width: 100%;
+    
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    align-self: start;
+
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(12px);          
+    -webkit-backdrop-filter: blur(12px);  
+    margin: 0;
+}
+
+.btns{
+    position: fixed;   
+    top: 25px;         
+    right: 3%;         
+    z-index: 33;
+    pointer-events: auto !important;
+    touch-action: manipulation;
+}
+
+.mute-btn{
+position: relative; 
+    width: 52px;  
+    height: 52px;
+    opacity: 0.5;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.2s ease;
+}
+
+.mute-btn:hover{
+    opacity:0.85;
+    cursor:pointer;
+    transition: opacity 0.5s ease-in-out;
+    
+}
+
+.mute-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    pointer-events: none;
+}
+
+
+
+audio {
+    opacity: 0.3;
+    display: flex;
+    width: 250px;
+    height: 33px;
+}
+
+audio:hover {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.download{
+font-family: "Bodoni Moda", cursive;
+    color: white;
+    display:block;
+    margin-left: 9px;
+    padding:5px;
+    background-color:rgba(255, 255, 255, 0.157);
+    color:white;
+    opacity:0.3;
+    outline:solid 2px white;
+    border-radius:7mm;
+    text-decoration:none;
+    height:100%;
+    font-size:14px;
+    
+
+}
+
+.download:hover{
+    opacity:1;
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    width: 100%;
+    
+    position: sticky;
+    top: 80px; 
+    z-index: 20;
+    align-self: start;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    gap: 20px; 
+    width: auto;
+    pointer-events: auto;
+    flex-wrap: wrap;
+}
+
+.youtube, .ig, .apple, .spotify, .bandcamp {
+    background-color: #ffffff;
+    opacity: 0.2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.youtube:hover, .ig:hover, .apple:hover, .spotify:hover, .bandcamp:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+.library-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: sticky;
+    top: 160px;
+    margin-top: 40px;
+    z-index: 10;
+    align-self: start;
+    height: auto;
+    pointer-events: auto;
+}
+
+.library {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 600px;
+    height: 60vh;             
+    overflow-y: auto;         
+    overflow-x: hidden; 
+
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    pointer-events: auto;
+}
+
+#dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+tr {
+    display: flex;
+    position: static;
+    flex-direction: row; 
+    align-items: center;
+    width: 100%;
+    padding: 15px 0;
+    justify-content: space-between; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    padding: 0;
+    color: #ffffff;
+    font-family: "UnifrakturMaguntia";
+    font-size: 23px;
+    font-weight: normal;
+}
+
+td {
+   display: flex;
+   padding: 10px;
+}
+
+label {
+    opacity: 0.7;
+    font-size: 33px;
+    letter-spacing: 1.2px;
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: "UnifrakturMaguntia";
+     margin: 35px auto 15px auto; 
+}
+
+label:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+select {
+    font-family: "UnifrakturMaguntia";
+    background-color: #040306;
+    color: #ffffff;
+    position: sticky;
+    display: none;
+    margin: 3%;
+    pointer-events: auto;
+    top: 0;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;          
+  overflow: hidden;   
+}
+
+spline-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  pointer-events: none; 
+  min-height: 200vh;
+}
+
+.toggle-button-calm, .toggle-button-haunting, .toggle-button-atmospheric, .toggle-button-energetic, .toggle-button-mysterious, .toggle-button-joyful {
+    font-family: "UnifrakturMaguntia";
+    color: #ffffff;
+    display: flex;
+    pointer-events: auto;
+}
+
+.toggle-button-calm:hover, .toggle-button-haunting:hover, .toggle-button-atmospheric:hover, .toggle-button-energetic:hover, .toggle-button-mysterious:hover, .toggle-button-joyful:hover {
+    cursor: pointer;
+}
+
+.audio-calm, .audio-haunting, .audio-atmospheric, .audio-energetic, .audio-mysterious, .audio-joyful {
+    display: none;
+    pointer-events: auto;
+}
+
+.hidden-checkbox-calm, .hidden-checkbox-haunting, .hidden-checkbox-atmospheric, .hidden-checkbox-energetic, .hidden-checkbox-mysterious, .hidden-checkbox-joyful {
+  display: none;
+}
+
+.hidden-checkbox-calm:checked ~ .audio-calm,
+.hidden-checkbox-haunting:checked ~ .audio-haunting,
+.hidden-checkbox-atmospheric:checked ~ .audio-atmospheric, .hidden-checkbox-energetic:checked ~ .audio-energetic, .hidden-checkbox-mysterious:checked ~ .audio-mysterious, .hidden-checkbox-joyful:checked ~ .audio-joyful {
+  display: flex;
+}
+
+.library::-webkit-scrollbar {
+    width: 6px;
+}
+.library::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+.library::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+.library::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        letter-spacing: 8px; 
+        text-indent: 8px;    
+        padding: 20px 0;
+    }
+
+    .links-container {
+        top: 80px; 
+        padding: 10px 0;
+    }
+
+    .youtube, .ig, .apple, .spotify, .bandcamp {
+        width: 40px;  
+        height: 40px;
+    }
+
+    .library-container {
+        top: 150px; 
+        margin-top: 15px;
+    }
+
+    .library {
+        width: 92%;      
+        height: 55vh;     
+    
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+
+    #dropdown {
+        padding: 5px;
+    }
+
+    label{
+        max-width:100%;
+text-align: center;
+    }
+
+    tr {
+        flex-direction: column; /* CRITICAL MOBILE FIX: Stacks name above player */
+        align-items: center;
+        gap: 8px;
+        padding: 12px 0;
+    }
+
+    th {
+        font-size: 18px;
+    }
+
+    td {
+        width: 100%;
+        justify-content: center;
+    }
+
+    audio {
+        width: 100%; 
+    }
+
+
+}
