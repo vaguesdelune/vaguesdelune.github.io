@@ -26,7 +26,7 @@ window.addEventListener('wheel', (event) => {
 
   if (currentStep >= targetStep && !hasLoaded) {
     hasLoaded = true;
-    window.location.href = 'https://youtube.com';
+    window.location.href = 'https://vdlaudio.com/library';
   }
 }, { passive: false });
 
