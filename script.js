@@ -26,7 +26,7 @@ window.addEventListener('wheel', (event) => {
 
   if (currentStep >= targetStep && !hasLoaded) {
     hasLoaded = true;
-    window.location.href = 'library/';
+    window.location.href = 'https://youtube.com';
   }
 }, { passive: false });
 
@@ -56,3 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
     });
+
+    document.addEventListener('wheel', (event) =>{
+      const scrollText = document.getElementById("scroll");
+      if (scrollText && event.deltaY > 0){
+        scrollText.style.display = "none";
+      }
+    })
