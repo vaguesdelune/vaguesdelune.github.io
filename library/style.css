@@ -23,7 +23,6 @@ body {
 #disclaimer{
 font-family: "Bodoni Moda", cursive;
     color: white;
-    display:flex;
     letter-spacing:0.03em;
     font-size:13px;
     text-align:center;
@@ -35,6 +34,21 @@ font-family: "Bodoni Moda", cursive;
     background-color: rgba(0, 0, 0, 0); 
     backdrop-filter: blur(12px);          
     -webkit-backdrop-filter: blur(12px);  
+
+}
+
+#echo{
+    text-decoration:none;
+    color:white;
+    font-family:"UnifrakturMaguntia";
+    margin-left:13px;
+    font-size:15px;
+    opacity:0.8;
+}
+
+#echo:hover{
+opacity:1;
+transition: opacity 0.5s ease-in-out;
 
 }
 
