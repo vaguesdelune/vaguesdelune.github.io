@@ -122,6 +122,7 @@ audio {
     display: flex;
     width: 250px;
     height: 33px;
+    transition: opacity 0.5s ease-in-out;
 }
 
 audio:hover {
@@ -187,6 +188,7 @@ font-family: "Bodoni Moda", cursive;
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .youtube:hover, .ig:hover, .apple:hover, .spotify:hover, .bandcamp:hover {
@@ -222,6 +224,31 @@ font-family: "Bodoni Moda", cursive;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     pointer-events: auto;
+}
+
+#cover-81 {
+  display: block;        
+  width: 200px;               
+  height: auto;          
+  align-self: center;          
+  margin-bottom: 10px;
+  
+  
+ 
+  box-shadow: 0 0 0px rgba(255, 255, 255, 0.0);
+  
+  
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+#cover-81:hover {
+  /* Layered shadows create a soft, seamless mist fading outwards */
+  box-shadow: 
+    0 0 20px 5px rgba(255, 255, 255, 0.6),  /* Tight intense inner mist */
+    0 0 50px 20px rgba(255, 255, 255, 0.4), /* Medium spread mist */
+    0 0 90px 40px rgba(255, 255, 255, 0.2); /* Deep, ultra-soft outer mist */
+    
+  cursor: pointer;
 }
 
 #dropdown {
@@ -267,6 +294,7 @@ label {
     color: white;
     font-family: "UnifrakturMaguntia";
      margin: 35px auto 15px auto; 
+     transition: opacity 0.5s ease-in-out;
 }
 
 label:hover {
@@ -319,6 +347,18 @@ spline-viewer {
     display: flex;
     pointer-events: auto;
 }
+
+label.toggle-button-calm {
+    display: flex;                  /* Activates the alignment engine */
+    flex-direction: column;         /* Stacks the image cleanly on top of the text */
+    align-items: center;            /* Forces perfect cross-axis center alignment */
+    justify-content: center;        /* Centers content on the main axis block */
+    
+    width: 200px;        
+    margin: 20px auto 10px auto; 
+    text-align: center;
+}
+
 
 .toggle-button-calm:hover, .toggle-button-haunting:hover, .toggle-button-atmospheric:hover, .toggle-button-energetic:hover, .toggle-button-mysterious:hover, .toggle-button-joyful:hover {
     cursor: pointer;
