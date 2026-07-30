@@ -251,6 +251,31 @@ font-family: "Bodoni Moda", cursive;
   cursor: pointer;
 }
 
+#cover-cobalt {
+  display: block;        
+  width: 200px;               
+  height: auto;          
+  align-self: center;          
+  margin-bottom: 10px;
+  
+  
+ 
+  box-shadow: 0 0 0px rgba(255, 255, 255, 0.0);
+  
+  
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+#cover-cobalt:hover {
+  /* Layered shadows create a soft, seamless mist fading outwards */
+  box-shadow: 
+    0 0 20px 5px rgba(255, 255, 255, 0.6),  /* Tight intense inner mist */
+    0 0 50px 20px rgba(255, 255, 255, 0.4), /* Medium spread mist */
+    0 0 90px 40px rgba(255, 255, 255, 0.2); /* Deep, ultra-soft outer mist */
+    
+  cursor: pointer;
+}
+
 #dropdown {
     display: flex;
     flex-direction: column;
@@ -341,7 +366,7 @@ spline-viewer {
   min-height: 200vh;
 }
 
-.toggle-button-calm, .toggle-button-haunting, .toggle-button-atmospheric, .toggle-button-energetic, .toggle-button-mysterious, .toggle-button-joyful {
+.toggle-button-calm,.toggle-button-cobalt, .toggle-button-haunting, .toggle-button-atmospheric, .toggle-button-energetic, .toggle-button-mysterious, .toggle-button-joyful {
     font-family: "UnifrakturMaguntia";
     color: #ffffff;
     display: flex;
@@ -359,23 +384,56 @@ label.toggle-button-calm {
     text-align: center;
 }
 
+label.toggle-button-cobalt {
+    display: flex;                  /* Activates the alignment engine */
+    flex-direction: column;         /* Stacks the image cleanly on top of the text */
+    align-items: center;            /* Forces perfect cross-axis center alignment */
+    justify-content: center;        /* Centers content on the main axis block */
+    
+    width: 200px;        
+    margin: 20px auto 10px auto; 
+    text-align: center;
+}
 
-.toggle-button-calm:hover, .toggle-button-haunting:hover, .toggle-button-atmospheric:hover, .toggle-button-energetic:hover, .toggle-button-mysterious:hover, .toggle-button-joyful:hover {
+
+.toggle-button-calm:hover, .toggle-button-cobalt, .toggle-button-haunting:hover, .toggle-button-atmospheric:hover, .toggle-button-energetic:hover, .toggle-button-mysterious:hover, .toggle-button-joyful:hover {
     cursor: pointer;
 }
 
-.audio-calm, .audio-haunting, .audio-atmospheric, .audio-energetic, .audio-mysterious, .audio-joyful {
+.audio-calm, .audio-cobalt, .audio-haunting, .audio-atmospheric, .audio-energetic, .audio-mysterious, .audio-joyful {
     display: none;
     pointer-events: auto;
 }
 
-.hidden-checkbox-calm, .hidden-checkbox-haunting, .hidden-checkbox-atmospheric, .hidden-checkbox-energetic, .hidden-checkbox-mysterious, .hidden-checkbox-joyful {
+.hidden-checkbox-calm, .hidden-checkbox-cobalt, .hidden-checkbox-haunting, .hidden-checkbox-atmospheric, .hidden-checkbox-energetic, .hidden-checkbox-mysterious, .hidden-checkbox-joyful {
   display: none;
 }
 
-.hidden-checkbox-calm:checked ~ .audio-calm,
-.hidden-checkbox-haunting:checked ~ .audio-haunting,
-.hidden-checkbox-atmospheric:checked ~ .audio-atmospheric, .hidden-checkbox-energetic:checked ~ .audio-energetic, .hidden-checkbox-mysterious:checked ~ .audio-mysterious, .hidden-checkbox-joyful:checked ~ .audio-joyful {
+.hidden-checkbox-calm:checked ~ .audio-calm {
+  display: flex;
+}
+
+.hidden-checkbox-cobalt:checked ~ .audio-cobalt {
+  display: flex;
+}
+
+.hidden-checkbox-haunting:checked ~ .audio-haunting {
+  display: flex;
+}
+
+.hidden-checkbox-atmospheric:checked ~ .audio-atmospheric {
+  display: flex;
+}
+
+.hidden-checkbox-energetic:checked ~ .audio-energetic {
+  display: flex;
+}
+
+.hidden-checkbox-mysterious:checked ~ .audio-mysterious {
+  display: flex;
+}
+
+.hidden-checkbox-joyful:checked ~ .audio-joyful {
   display: flex;
 }
 
