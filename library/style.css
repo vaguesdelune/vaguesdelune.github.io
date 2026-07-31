@@ -213,12 +213,17 @@ font-family: "Bodoni Moda", cursive;
 
 .library {
     display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 600px;
-    height: 60vh;             
-    overflow-y: auto;         
-    overflow-x: hidden; 
+    flex-direction: row;
+    width: 95%;
+    max-width: 85%;
+    height: 70vh;             
+    overflow-y:auto;         
+    overflow-x: auto; 
+    justify-content:space-between;
+    margin-left:5%;
+    margin-right:5%;
+    padding-left:5%;
+    padding-right:5%;
 
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(2px);
@@ -228,7 +233,7 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-81 {
   display: block;        
-  width: 200px;               
+  width: 150px;               
   height: auto;          
   align-self: center;          
   margin-bottom: 10px;
@@ -253,7 +258,7 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-cobalt {
   display: block;        
-  width: 200px;               
+  width: 150px;               
   height: auto;          
   align-self: center;          
   margin-bottom: 10px;
@@ -276,13 +281,40 @@ font-family: "Bodoni Moda", cursive;
   cursor: pointer;
 }
 
+#cover-stilla {
+  display: block;        
+  width: 150px;               
+  height: auto;          
+  align-self: center;          
+  margin-bottom: 10px;
+  
+  
+ 
+  box-shadow: 0 0 0px rgba(255, 255, 255, 0.0);
+  
+  
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+#cover-stilla:hover {
+  /* Layered shadows create a soft, seamless mist fading outwards */
+  box-shadow: 
+    0 0 20px 5px rgba(255, 255, 255, 0.6),  /* Tight intense inner mist */
+    0 0 50px 20px rgba(255, 255, 255, 0.4), /* Medium spread mist */
+    0 0 90px 40px rgba(255, 255, 255, 0.2); /* Deep, ultra-soft outer mist */
+    
+  cursor: pointer;
+}
+
+
 #dropdown {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80vw;
     pointer-events: auto;
     padding: 20px;
     box-sizing: border-box;
+    justify-content:space-around;
 }
 
 tr {
@@ -366,14 +398,14 @@ spline-viewer {
   min-height: 200vh;
 }
 
-.toggle-button-calm,.toggle-button-cobalt, .toggle-button-haunting, .toggle-button-atmospheric, .toggle-button-energetic, .toggle-button-mysterious, .toggle-button-joyful {
+.toggle-button-81,.toggle-button-cobalt, .toggle-button-stilla, .toggle-button-haunting, .toggle-button-atmospheric, .toggle-button-energetic, .toggle-button-mysterious, .toggle-button-joyful {
     font-family: "UnifrakturMaguntia";
     color: #ffffff;
     display: flex;
     pointer-events: auto;
 }
 
-label.toggle-button-calm {
+label.toggle-button-81 {
     display: flex;                  /* Activates the alignment engine */
     flex-direction: column;         /* Stacks the image cleanly on top of the text */
     align-items: center;            /* Forces perfect cross-axis center alignment */
@@ -395,25 +427,40 @@ label.toggle-button-cobalt {
     text-align: center;
 }
 
+label.toggle-button-stilla {
+    display: flex;                  /* Activates the alignment engine */
+    flex-direction: column;         /* Stacks the image cleanly on top of the text */
+    align-items: center;            /* Forces perfect cross-axis center alignment */
+    justify-content: center;        /* Centers content on the main axis block */
+    
+    width: 200px;        
+    margin: 20px auto 10px auto; 
+    text-align: center;
+}
 
-.toggle-button-calm:hover, .toggle-button-cobalt, .toggle-button-haunting:hover, .toggle-button-atmospheric:hover, .toggle-button-energetic:hover, .toggle-button-mysterious:hover, .toggle-button-joyful:hover {
+
+.toggle-button-81:hover, .toggle-button-cobalt:hover, .toggle-button-stilla:hover, .toggle-button-haunting:hover, .toggle-button-atmospheric:hover, .toggle-button-energetic:hover, .toggle-button-mysterious:hover, .toggle-button-joyful:hover {
     cursor: pointer;
 }
 
-.audio-calm, .audio-cobalt, .audio-haunting, .audio-atmospheric, .audio-energetic, .audio-mysterious, .audio-joyful {
+.audio-81, .audio-cobalt, .audio-stilla, .audio-haunting, .audio-atmospheric, .audio-energetic, .audio-mysterious, .audio-joyful {
     display: none;
     pointer-events: auto;
 }
 
-.hidden-checkbox-calm, .hidden-checkbox-cobalt, .hidden-checkbox-haunting, .hidden-checkbox-atmospheric, .hidden-checkbox-energetic, .hidden-checkbox-mysterious, .hidden-checkbox-joyful {
+.hidden-checkbox-81, .hidden-checkbox-stilla, .hidden-checkbox-cobalt, .hidden-checkbox-haunting, .hidden-checkbox-atmospheric, .hidden-checkbox-energetic, .hidden-checkbox-mysterious, .hidden-checkbox-joyful {
   display: none;
 }
 
-.hidden-checkbox-calm:checked ~ .audio-calm {
+.hidden-checkbox-81:checked ~ .audio-81 {
   display: flex;
 }
 
 .hidden-checkbox-cobalt:checked ~ .audio-cobalt {
+  display: flex;
+}
+
+.hidden-checkbox-stilla:checked ~ .audio-stilla {
   display: flex;
 }
 
