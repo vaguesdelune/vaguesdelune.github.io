@@ -203,12 +203,12 @@ font-family: "Bodoni Moda", cursive;
     flex-direction:column;
     justify-content: center;
     width: 100%;
-    max-width:800px;
+    max-width:100vw;
     position: sticky;
     top: 160px;
     margin-top: 40px;
     z-index: 10;
-    align-self: start;
+    
     height: auto;
     pointer-events: auto;
 
