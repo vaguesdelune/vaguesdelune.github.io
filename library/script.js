@@ -45,3 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
     });
+
+      const toggles = document.querySelectorAll('input[id^="toggle-trigger-"]');
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener('change', function() {
+      // Si on vient d'ouvrir ce menu déroulant
+      if (this.checked) {
+        // On parcourt les autres pour les fermer
+        toggles.forEach(otherToggle => {
+          if (otherToggle !== this) {
+            otherToggle.checked = false;
+          }
+        });
+      }
+    });
+  });
