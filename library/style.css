@@ -200,6 +200,7 @@ font-family: "Bodoni Moda", cursive;
 
 .library-container {
     display: flex;
+    flex-direction:column;
     justify-content: center;
     width: 100%;
     position: sticky;
@@ -209,26 +210,35 @@ font-family: "Bodoni Moda", cursive;
     align-self: start;
     height: auto;
     pointer-events: auto;
-}
 
-.library {
-    display: flex;
-    flex-direction: row;
-    width: 95%;
-    max-width: 85%;
-    height: 70vh;             
-    overflow-y:auto;         
-    overflow-x: auto; 
-    justify-content:space-between;
-    margin-left:5%;
-    margin-right:5%;
-    padding-left:5%;
-    padding-right:5%;
-
+    overflow-y: auto;                  /* Un seul scroll vertical pour tout le monde */
+    overflow-x: hidden;
+    padding: 5% 5% 10% 5%;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+}
+
+.library-row-1, .library-row-2 {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    max-width: 100%;
+    min-height: 0;             
+    height:auto; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:40px;
+    position:static;
+    transform:none;
     pointer-events: auto;
+
+    padding-bottom: 20px !important;
+    margin: 0 auto;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow: visible !important;
 }
 
 #cover-81 {
@@ -306,15 +316,34 @@ font-family: "Bodoni Moda", cursive;
   cursor: pointer;
 }
 
+.audio-81-container, 
+.audio-cobalt-container, 
+.audio-stilla-container {
+    margin-left:auto;
+    margin-right:auto;
+    position:static;
+    width:100%;
+}
+
 
 #dropdown {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    pointer-events: auto;
+    align-items: center;       /* Centre les lecteurs audio horizontalement */
+    justify-content: center;
+    width: 100% !important;    /* Force le menu à prendre toute la largeur */
+    flex-basis: 100%;          /* Force Flexbox à le pousser sur une nouvelle ligne complète */
+    margin-top: 40px;          /* Espace sous les couvertures */
     padding: 20px;
     box-sizing: border-box;
-    justify-content:space-around;
+    justify-content:space-evenly;
+    top:100%;
+    clear:both;
+    background: rgba(0, 0, 0, 0.4);
+    max-width:100%;
+    top: 180px; /* Ajustez cette valeur pour le coller pile sous les couvertures */
+    left: 50%;
+    
 }
 
 tr {
@@ -323,8 +352,9 @@ tr {
     flex-direction: row; 
     align-items: center;
     width: 100%;
+    min-width:300px;
+    justify-content:space-evenly;
     padding: 15px 0;
-    justify-content: space-between; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -446,6 +476,9 @@ label.toggle-button-stilla {
 .audio-81, .audio-cobalt, .audio-stilla, .audio-haunting, .audio-atmospheric, .audio-energetic, .audio-mysterious, .audio-joyful {
     display: none;
     pointer-events: auto;
+
+    width: 100%;
+    flex-basis: 100%;
 }
 
 .hidden-checkbox-81, .hidden-checkbox-stilla, .hidden-checkbox-cobalt, .hidden-checkbox-haunting, .hidden-checkbox-atmospheric, .hidden-checkbox-energetic, .hidden-checkbox-mysterious, .hidden-checkbox-joyful {
@@ -520,11 +553,16 @@ label.toggle-button-stilla {
     .library-container {
         top: 150px; 
         margin-top: 15px;
+        flex-direction:column;
+        align-items:center;
     }
 
-    .library {
+    .library-row-1, .library-row-2 {
         width: 92%;      
-        height: 55vh;     
+        height: auto;     
+        flex-direction:column;
+        align-items:center;
+        gap:35px;
     
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
