@@ -349,9 +349,35 @@ font-family: "Bodoni Moda", cursive;
     drop-shadow(0 0 90px rgba(255, 255, 255, 0.2));
 }
 
+#cover-nidra { 
+  display: block; 
+  width: 150px; 
+  height: auto; 
+  align-self: center; 
+  margin-bottom: 10px; 
+  cursor: pointer;
+
+  /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
+  filter: 
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.01))
+    drop-shadow(0 0 50px rgba(255, 255, 255, 0.01))
+    drop-shadow(0 0 90px rgba(255, 255, 255, 0.01));
+  
+  /* Transition fluide gérée par le GPU */
+  transition: filter 0.5s ease-in-out;
+}
+
+#cover-nidra:hover { 
+  /* Activation de la brume au survol avec les bonnes valeurs d'opacité */
+  filter: 
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.6))
+    drop-shadow(0 0 50px rgba(255, 255, 255, 0.4))
+    drop-shadow(0 0 90px rgba(255, 255, 255, 0.2));
+}
+
 .audio-81-container, 
 .audio-cobalt-container, 
-.audio-stilla-container, .audio-sidus-container {
+.audio-stilla-container, .audio-sidus-container, .audio-nidra-container {
     margin-left:auto;
     margin-right:auto;
     position:static;
@@ -461,7 +487,7 @@ spline-viewer {
   min-height: 200vh;
 }
 
-.toggle-button-81,.toggle-button-cobalt, .toggle-button-stilla, .toggle-button-sidus {
+.toggle-button-81,.toggle-button-cobalt, .toggle-button-stilla, .toggle-button-sidus, .toggle-button-nidra {
     font-family: "UnifrakturMaguntia";
     color: #ffffff;
     display: flex;
@@ -501,6 +527,7 @@ label.toggle-button-stilla {
     text-align: center;
 }
 
+
 label.toggle-button-sidus {
     display: flex;                  /* Activates the alignment engine */
     flex-direction: column;         /* Stacks the image cleanly on top of the text */
@@ -512,12 +539,23 @@ label.toggle-button-sidus {
     text-align: center;
 }
 
+label.toggle-button-nidra {
+    display: flex;                  /* Activates the alignment engine */
+    flex-direction: column;         /* Stacks the image cleanly on top of the text */
+    align-items: center;            /* Forces perfect cross-axis center alignment */
+    justify-content: center;        /* Centers content on the main axis block */
+    
+    width: 200px;        
+    margin: 20px auto 10px auto; 
+    text-align: center;
+}
 
-.toggle-button-81:hover, .toggle-button-cobalt:hover, .toggle-button-stilla:hover, .toggle-button-sidus:hover{
+
+.toggle-button-81:hover, .toggle-button-cobalt:hover, .toggle-button-stilla:hover, .toggle-button-sidus:hover, .toggle-button-nidra:hover{
     cursor: pointer;
 }
 
-.audio-81, .audio-cobalt, .audio-stilla, .audio-sidus {
+.audio-81, .audio-cobalt, .audio-stilla, .audio-sidus, .audio-nidra {
     display: none;
     pointer-events: auto;
 
@@ -525,7 +563,7 @@ label.toggle-button-sidus {
     flex-basis: 100%;
 }
 
-.hidden-checkbox-81, .hidden-checkbox-stilla, .hidden-checkbox-cobalt, .hidden-checkbox-sidus {
+.hidden-checkbox-81, .hidden-checkbox-stilla, .hidden-checkbox-cobalt, .hidden-checkbox-sidus, .hidden-checkbox-nidra {
   display: none;
 }
 
@@ -542,6 +580,10 @@ label.toggle-button-sidus {
 }
 
 .hidden-checkbox-sidus:checked ~ .audio-sidus {
+  display: flex;
+}
+
+.hidden-checkbox-nidra:checked ~ .audio-nidra {
   display: flex;
 }
 
