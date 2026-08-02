@@ -375,9 +375,35 @@ font-family: "Bodoni Moda", cursive;
     drop-shadow(0 0 90px rgba(255, 255, 255, 0.2));
 }
 
+#cover-pollens { 
+  display: block; 
+  width: 150px; 
+  height: auto; 
+  align-self: center; 
+  margin-bottom: 10px; 
+  cursor: pointer;
+
+  /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
+  filter: 
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.01))
+    drop-shadow(0 0 50px rgba(255, 255, 255, 0.01))
+    drop-shadow(0 0 90px rgba(255, 255, 255, 0.01));
+  
+  /* Transition fluide gérée par le GPU */
+  transition: filter 0.5s ease-in-out;
+}
+
+#cover-pollens:hover { 
+  /* Activation de la brume au survol avec les bonnes valeurs d'opacité */
+  filter: 
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.6))
+    drop-shadow(0 0 50px rgba(255, 255, 255, 0.4))
+    drop-shadow(0 0 90px rgba(255, 255, 255, 0.2));
+}
+
 .audio-81-container, 
 .audio-cobalt-container, 
-.audio-stilla-container, .audio-sidus-container, .audio-nidra-container {
+.audio-stilla-container, .audio-sidus-container, .audio-nidra-container, .audio-pollens-container {
     margin-left:auto;
     margin-right:auto;
     position:static;
@@ -487,7 +513,7 @@ spline-viewer {
   min-height: 200vh;
 }
 
-.toggle-button-81,.toggle-button-cobalt, .toggle-button-stilla, .toggle-button-sidus, .toggle-button-nidra {
+.toggle-button-81,.toggle-button-cobalt, .toggle-button-stilla, .toggle-button-sidus, .toggle-button-nidra, .toggle-button-pollens {
     font-family: "UnifrakturMaguntia";
     color: #ffffff;
     display: flex;
@@ -550,12 +576,23 @@ label.toggle-button-nidra {
     text-align: center;
 }
 
+label.toggle-button-pollens {
+    display: flex;                  /* Activates the alignment engine */
+    flex-direction: column;         /* Stacks the image cleanly on top of the text */
+    align-items: center;            /* Forces perfect cross-axis center alignment */
+    justify-content: center;        /* Centers content on the main axis block */
+    
+    width: 200px;        
+    margin: 20px auto 10px auto; 
+    text-align: center;
+}
 
-.toggle-button-81:hover, .toggle-button-cobalt:hover, .toggle-button-stilla:hover, .toggle-button-sidus:hover, .toggle-button-nidra:hover{
+
+.toggle-button-81:hover, .toggle-button-cobalt:hover, .toggle-button-stilla:hover, .toggle-button-sidus:hover, .toggle-button-nidra:hover, .toggle-button-pollens:hover{
     cursor: pointer;
 }
 
-.audio-81, .audio-cobalt, .audio-stilla, .audio-sidus, .audio-nidra {
+.audio-81, .audio-cobalt, .audio-stilla, .audio-sidus, .audio-nidra, .audio-pollens {
     display: none;
     pointer-events: auto;
 
@@ -563,7 +600,7 @@ label.toggle-button-nidra {
     flex-basis: 100%;
 }
 
-.hidden-checkbox-81, .hidden-checkbox-stilla, .hidden-checkbox-cobalt, .hidden-checkbox-sidus, .hidden-checkbox-nidra {
+.hidden-checkbox-81, .hidden-checkbox-stilla, .hidden-checkbox-cobalt, .hidden-checkbox-sidus, .hidden-checkbox-nidra, .hidden-checkbox-pollens {
   display: none;
 }
 
@@ -587,6 +624,9 @@ label.toggle-button-nidra {
   display: flex;
 }
 
+.hidden-checkbox-pollens:checked ~ .audio-pollens {
+  display: flex;
+}
 
 .library::-webkit-scrollbar {
     width: 6px;
