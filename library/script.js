@@ -61,3 +61,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+document.querySelectorAll('input[id^="toggle-trigger-"]').forEach(checkbox => {
+    checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            const rowParente = event.target.closest('[class*="library-row-"]');
+            
+            if (rowParente) {
+                // Double frame pour attendre la fin du rendu CSS instantané
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        // Calcule la position réelle APRÈS l'apparition du bloc
+                        const positionElement = rowParente.getBoundingClientRect().top + window.scrollY;
+                        
+                      
+                        const decallageHeader = 150; 
+
+                        window.scrollTo({
+                            top: positionElement - decallageHeader,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
+        }
+    });
+});
