@@ -657,6 +657,7 @@ label.toggle-button-pollens {
     position:fixed;
     opacity:0.01;
     margin: 0 !important;
+    padding-top:150px;
 
 }
 
