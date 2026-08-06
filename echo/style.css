@@ -21,6 +21,12 @@ body {
     box-sizing: border-box;
 }
 
+.grid-container{
+display:grid;
+grid-template-columns: 2;
+grid-template-rows: 3;
+}
+
 #header {
     color: white;
     font-family: "UnifrakturMaguntia", cursive;
