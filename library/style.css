@@ -206,9 +206,10 @@ font-family: "Bodoni Moda", cursive;
     display: flex;
     flex-direction:column;
     justify-content: center;
-    width: 100%;
+    min-width: 100%;
     position: sticky;
     top: 160px;
+    margin:0 auto;
     margin-top: 40px;
     z-index: 10;
     
@@ -218,7 +219,7 @@ font-family: "Bodoni Moda", cursive;
     overflow-y: auto;                  /* Un seul scroll vertical pour tout le monde */
     overflow-x: hidden;
     padding: 5%;
-    margin-right:60%;
+    
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
