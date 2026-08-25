@@ -28,23 +28,59 @@ lazulina.play().catch(error => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const muteBtn = document.getElementById("mute-btn");
-  const lazulina = document.getElementById('lazulina-bg');
   const muteImg = document.getElementById("mute");
 
   if (muteBtn) {
+    // 1. Establish a single source of truth for the global muted state
+    let isGlobalMuted = false;
+
     muteBtn.addEventListener('click', () => {
+      // Toggle the global state flag
+      isGlobalMuted = !isGlobalMuted;
       
-      lazulina.muted = !lazulina.muted;
+      
+      const allMedia = document.querySelectorAll('audio');
       
       
-      if (lazulina.muted) {
+      allMedia.forEach(media => {
+        media.muted = isGlobalMuted;
+      });
+      
+      
+      if (isGlobalMuted) {
         muteImg.src = "icons/ion--volume-mute-sharp.svg";
       } else {
         muteImg.src = "icons/ion--volume-high-sharp.svg";
       }
     });
   }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const volumeFader = document.getElementById('volume-fader');
+  const faderWrapper = document.querySelector('.slider-wrapper');
+
+  if (volumeFader && faderWrapper) {
+    // 1. Existing volume functionality...
+    volumeFader.addEventListener('input', (e) => {
+      const volumeValue = e.target.value;
+      document.querySelectorAll('audio, video').forEach(media => {
+        media.volume = volumeValue;
+      });
     });
+
+    // 2. NEW: Structural state triggers for the dragging look
+    volumeFader.addEventListener('mousedown', () => {
+      faderWrapper.classList.add('is-dragging');
+    });
+
+    document.addEventListener('mouseup', () => {
+      faderWrapper.classList.remove('is-dragging');
+    });
+  }
+});
+
+
 
       const toggles = document.querySelectorAll('input[id^="toggle-trigger-"]');
 

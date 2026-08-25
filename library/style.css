@@ -120,6 +120,107 @@ position: relative;
 }
 
 
+.slider-wrapper {
+    position: fixed;            /* Forces tracking placement relative to the viewport window */
+    right: 20px;                /* Pins container directly to the right border */
+    top: 50%;                   /* Centers vertically on the screen */
+    transform: translateY(-50%);/* Offsets position exact to absolute center mass */
+    z-index: 99;              /* Layers clearly above your backdrop-filter surfaces */
+    
+    display: flex;
+    flex-direction: column;     /* Stacks elements vertically (Text top, slider middle, icon bottom) */
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+    height: 240px;              /* Explicitly defines vertical height range limits */
+    width: auto;                /* Prevents layout squash */
+    box-sizing: border-box;
+    pointer-events: all;
+}
+
+/* Base Slider Track - Vertically Transformed via Box Model Native rules */
+#volume-fader {
+    -webkit-appearance: none;
+    appearance: none;
+    
+    /* The Magical Native Vertical Track Formula */
+    writing-mode: vertical-lr;  /* Sets layout direction to run up-and-down natively */
+    direction: rtl;             /* Sets track orientation: 100% (High) at Top, 0% (Silent) at Bottom */
+    
+    height: 100%;               /* Expands to occupy full vertical box bounds */
+    width: 7px;                 /* Thinner structural profile matching sleek desktop targets */
+    border-radius: 2px;
+    background: #404040;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+    margin: 0;                  /* Normalizes baseline native spacing offsets */
+}
+
+/* Highlight track on wrapper hover */
+.slider-wrapper:hover #volume-fader {
+    background: #ffff;
+    opacity: 0.8;
+}
+
+#volume-fader:hover {
+    background: #ffffff !important;
+    opacity: 0.8;
+}
+
+/* --- Webkit Browsers (Chrome, Safari, Edge) --- */
+#volume-fader::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
+    cursor: pointer;
+    transform: scale(0);        
+    transition: transform 0.2s ease; /* Snappier animation prevents flashing delays */
+}
+
+/* --- Fix 2: Target the thumb via the fader directly, keeping it rock-solid --- */
+#volume-fader:hover::-webkit-slider-thumb,
+#volume-fader:active::-webkit-slider-thumb {
+    transform: scale(1);
+}
+
+#volume-fader::-webkit-slider-thumb:hover {
+    background: #ffffff;
+    transform: scale(1.2);
+}
+
+
+/* ==========================================================================
+   🔒 DRAGGING STATE LOCKS (Updated for maximum contrast hierarchy)
+   ========================================================================== */
+
+/* 1. Force the button and text elements to 100% pure, intense solid white */
+.slider-wrapper.is-dragging #mute-btn,
+.slider-wrapper.is-dragging #mute,
+.slider-wrapper.is-dragging img,
+.slider-wrapper.is-dragging svg,
+.slider-wrapper.is-dragging #volume-percentage {
+    opacity: 1 !important;
+    filter: brightness(3) contrast(3) !important; /* Forces layout assets to full white emission */
+}
+
+/* 2. Dimmest lock on the fader track so the button is completely dominant */
+.slider-wrapper.is-dragging #volume-fader {
+    background: #888888 !important; /* Swapped solid white for a soft gray while dragging */
+    opacity: 0.5 !important;        /* Pulls back light emission so the button is visibly whiter */
+}
+
+/* 3. Keep the interactive track thumb highly visible and expanded */
+.slider-wrapper.is-dragging #volume-fader::-webkit-slider-thumb {
+    transform: scale(1.2) !important;
+    background: #ffffff !important; /* Thumb remains solid white */
+}
+
+
 
 audio {
     opacity: 0.3;
