@@ -56,6 +56,16 @@ transition: opacity 0.5s ease-in-out;
 
 }
 
+.vdl{
+    text-decoration: none !important;
+    pointer-events: auto !important;
+    color: white;
+}
+
+h1:hover{
+    cursor: pointer;
+}
+
 h1 {
     font-family: "UnifrakturMaguntia";
     color: white;
@@ -68,6 +78,8 @@ h1 {
     text-indent: 23px;   
     opacity: 0.9;
     width: 100%;
+
+    pointer-events: all;
     
     position: sticky;
     top: 0;
