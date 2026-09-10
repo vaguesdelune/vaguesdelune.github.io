@@ -237,9 +237,7 @@ position: relative;
 
 audio {
     opacity: 0.3;
-    display: flex;
     width: 250px;
-    height: 33px;
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -345,7 +343,7 @@ font-family: "Bodoni Moda", cursive;
     width: 80%;
     min-height: 0;             
     height:auto; 
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     gap:20px;
     position:static;
@@ -366,10 +364,10 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-81 { 
   display: block; 
-  width: 150px; 
+  width: 166px; 
   height: auto; 
   align-self: center; 
-  margin-bottom: 10px; 
+  margin-bottom: 27px; 
   cursor: pointer;
 
   /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
@@ -392,10 +390,10 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-cobalt { 
   display: block; 
-  width: 150px; 
+  width: 166px; 
   height: auto; 
   align-self: center; 
-  margin-bottom: 10px; 
+  margin-bottom: 27px; 
   cursor: pointer;
 
   /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
@@ -418,10 +416,10 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-stilla { 
   display: block; 
-  width: 150px; 
+  width: 166px; 
   height: auto; 
   align-self: center; 
-  margin-bottom: 10px; 
+  margin-bottom: 27px; 
   cursor: pointer;
 
   /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
@@ -444,10 +442,10 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-sidus { 
   display: block; 
-  width: 150px; 
+  width: 166px; 
   height: auto; 
   align-self: center; 
-  margin-bottom: 10px; 
+  margin-bottom: 27px; 
   cursor: pointer;
 
   /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
@@ -470,10 +468,10 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-nidra { 
   display: block; 
-  width: 150px; 
+  width: 166px; 
   height: auto; 
   align-self: center; 
-  margin-bottom: 10px; 
+  margin-bottom: 27px; 
   cursor: pointer;
 
   /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
@@ -496,10 +494,10 @@ font-family: "Bodoni Moda", cursive;
 
 #cover-pollens { 
   display: block; 
-  width: 150px; 
+  width: 166px; 
   height: auto; 
   align-self: center; 
-  margin-bottom: 10px; 
+  margin-bottom: 27px; 
   cursor: pointer;
 
   /* Préparation des filtres : l'effet est invisible au départ (opacité 0) */
@@ -566,7 +564,7 @@ th {
     padding: 0;
     color: #ffffff;
     font-family: "UnifrakturMaguntia";
-    font-size: 23px;
+    font-size: 30px;
     font-weight: normal;
 }
 
@@ -637,6 +635,7 @@ spline-viewer {
     color: #ffffff;
     display: flex;
     pointer-events: auto;
+    font-size: 41px;
 }
 
 label.toggle-button-81 {
@@ -844,7 +843,7 @@ text-align: center;
     }
 
     th {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     td {
